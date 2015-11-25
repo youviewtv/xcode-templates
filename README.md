@@ -9,7 +9,7 @@ Often when working with Xcode you may want to replace the default file heading w
 
 ## Prerequisites
 
-It is expected that you are on a Mac, running OS X, that you have the latest version of Xcode installed (6.1.1 as of this writing), and also are running Ruby 1.9.3 or newer.
+It is expected that you are on a Mac, running OS X, that you have the latest version of Xcode installed (7.1.1 as of this writing), and also are running Ruby 1.9.3 or newer.
 
 ## Usage
 
@@ -19,7 +19,7 @@ The script is executed from the command line, so the first step is to verify the
 chmod +x xctemplates.rb
 ```
 	
-Now you can simply run the script from your shell prompt. The default implementation generates templates with the Apache Software License (ASL) header.
+Now you can simply run the script from your shell prompt. The default implementation generates templates with the YouView (YV) header.
 
 ```sh
 ./xctemplates.rb
