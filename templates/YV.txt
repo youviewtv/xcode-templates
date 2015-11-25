@@ -4,7 +4,7 @@
 //
 //  Created on: ___DATE___
 //
-//___COPYRIGHT___
+//  Copyright (c) ___ORGANIZATIONNAME___
 //
 //  This unpublished material is proprietary to ___ORGANIZATIONNAME___. All rights reserved. 
 //  The methods and techniques described herein are considered trade secrets and/or confidential. 
