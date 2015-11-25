@@ -20,7 +20,7 @@ include FileUtils
 staging = 'staging'
 templates = staging + '/File Templates'
 
-license = 'ASL'
+license = 'YV'
 if !ARGV.empty?
   license = ARGV.first.upcase
 end
@@ -44,8 +44,13 @@ FileUtils.mkdir_p templates
 puts "Copying templates from Xcode..."
 
 dir_format = ' (' + license + ')'
-FileUtils.cp_r '/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates/Core Data', templates + '/Core Data' + dir_format
-FileUtils.cp_r '/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates/Source', templates + '/Source' + dir_format
+source_dir = templates + '/Source' + dir_format
+coredata_dir = templates + '/Core Data' + dir_format
+FileUtils.mkdir_p source_dir
+FileUtils.mkdir_p coredata_dir
+FileUtils.cp_r '/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates/Core Data/.', coredata_dir
+FileUtils.cp_r '/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates/Source/.', source_dir
+FileUtils.cp_r '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source/.', source_dir
 
 puts "Updating directories..."
 Dir.glob(templates + '/**/*').each { |f| 
@@ -63,7 +68,7 @@ Dir.glob(templates + '/**/*').each { |f|
 puts "Updating file headers..."
 original_header = File.read('templates/original_header.txt')
 new_header = File.read(license_file)
-Dir.glob(templates + '/**/*').each { |f| 
+Dir.glob(templates + '/**/*{.h,.m,.swift}').each { |f| 
   if (File.file?(f))
     puts "Processing file..."
     text = File.read(f)    
